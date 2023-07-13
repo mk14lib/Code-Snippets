@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-int size = 0;
-
 // declaration of singly linked list
 struct node {
     int data;
@@ -82,7 +80,7 @@ int main()
     srand(time(NULL));
     struct node* head = NULL;
     for(int i = 0; i < 5; i++) insert_node(&head, rand()%100+1);
-    printList(head);
+    printList(head);  
     bubbleSort(head);
     printList(head);
     return 0;
