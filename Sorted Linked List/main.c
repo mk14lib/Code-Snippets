@@ -2,6 +2,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
+int size = 0;
 
 // declaration of singly linked list
 struct node {
@@ -56,9 +59,9 @@ void printList(struct node* head)
 }
 
 // bubble sort function
-void bubbleSort(struct node *head)
+void bubbleSort(struct node* head)
 {
-    struct node *current, *index;
+    struct node* current, *index;
     current = index = head;
     while(current != NULL)
     {
@@ -66,9 +69,7 @@ void bubbleSort(struct node *head)
         while(index != NULL)
         {
             if(current->data > index->data)
-            {
                 current->data ^= index->data ^= current->data ^= index->data;
-            }
             index = index->next;
         }
         current = current->next;
@@ -78,14 +79,10 @@ void bubbleSort(struct node *head)
 // main function: execution starting point
 int main()
 {
+    srand(time(NULL));
     struct node* head = NULL;
-    insert_node(&head, 25);
-    insert_node(&head, 16);
-    insert_node(&head, 5);
-    insert_node(&head, 29);
-    insert_node(&head, 12);
+    for(int i = 0; i < 5; i++) insert_node(&head, rand()%100+1);
     printList(head);
-    
     bubbleSort(head);
     printList(head);
     return 0;
