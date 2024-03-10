@@ -18,7 +18,7 @@ void selection_sort(int arr[], int n)
 }
 */
 
-// method-2: copy index and sort --> correct method 
+// method-2: copy index and sort --> correct method O(N*N)
 void selection_sort(int arr[], int n)
 {
     for(int i = 0; i < n; ++i)
