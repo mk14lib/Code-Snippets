@@ -18,7 +18,9 @@ void selection_sort(int arr[], int n)
 }
 */
 
-// method-2: copy index and sort --> correct method O(N*N)
+// method-2: copy index and sort --> correct method 
+// Time Complexity: O(N*N)
+// Space Complexity: O(1)
 void selection_sort(int arr[], int n)
 {
     for(int i = 0; i < n; ++i)
