@@ -11,6 +11,18 @@ int missing_number(vector<int> arr, int range)
         n -= arr[i];
     }
     return n;
+
+    /* approach 2: xor operation
+    int xor1 = 0, xor2 = 0;
+    
+    for(int i =0; i < range; i++)
+    {
+        xor1 = xor1 ^ arr[i];
+        xor2 = xor2 ^ (i + 1);
+    }
+    
+    return xor1 ^ xor2;
+    */
 }
 
 int main()
