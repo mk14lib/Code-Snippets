@@ -42,7 +42,24 @@ int main()
         
         tab[i] = min(first, second);
     }
-    
     cout << tab[n-1] << endl;
+    
+    // space optimization
+    int prev = 0, prev2 = 0, third = 0;
+    for(int i = 1; i < n; i++)
+    {
+        int first  = prev + abs(heights[i] - heights[i-1]);
+        int second = INT_MAX;
+        if (i > 1) 
+        {
+            second = prev2 + abs(heights[i] - heights[i-2]);
+        }
+        
+        third = min(first, second);
+        prev2 = prev;
+        prev = third;
+    }
+    cout << prev << endl;
+    
     return 0;
 }
