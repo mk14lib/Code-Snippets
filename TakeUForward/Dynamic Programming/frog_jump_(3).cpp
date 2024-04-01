@@ -24,7 +24,25 @@ int main()
     vector<int> heights {10, 20, 30, 10};
     int n = 4;
     
-    vector<int> dp(n+1, -1);
-    cout << frogJump(n-1, heights, dp);
+    // Dynamic programming
+    vector<int> dp(n, -1);
+    cout << frogJump(n-1, heights, dp) << endl;
+    
+    // Tabulation
+    vector<int> tab(n, 0);
+    for(int i = 1; i <= n; i++)
+    {
+        int first = tab[i-1] + abs(heights[i-1]-heights[i]);
+        
+        int second = INT_MAX;
+        if (i > 1)
+        {
+            second = tab[i-2] + abs(heights[i-2]-heights[i]);
+        }
+        
+        tab[i] = min(first, second);
+    }
+    
+    cout << tab[n-1] << endl;
     return 0;
 }
